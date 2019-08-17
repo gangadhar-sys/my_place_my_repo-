@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  peatio:
+    image: "rubykube/peatio:2.2.26"
+    #env_file:
+    #  - ../config/peatio.env
+    expose:
+      - "8000"
+   # volumes:
+   #   - ../config/peatio/seed:/home/gangadhar/
+   #   - ../config/peatio/management_api_v1.yml:/opt/peatio/config/management_api_v1.yml
+   #   - ../config/peatio/plugins.yml:/opt/peatio/config/plugins.yml
+    labels: {}
+    command: bash -c "bin/link_config && bundle exec puma --config config/puma.rb"
